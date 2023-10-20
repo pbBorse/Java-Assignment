@@ -2,28 +2,36 @@ package Assing;
 
 
 	import java.util.ArrayList;
-	import java.util.Collections;
-	import java.util.List;
+	
+	import java.util.Random;
 
 	public class ShuffleArray {
 
-	    public static void main(String[] args) {
-	        
-	        List<Integer> arrayList = new ArrayList<>();
-	        arrayList.add(1);
-	        arrayList.add(2);
-	        arrayList.add(3);
-	        arrayList.add(4);
-	        arrayList.add(5);
-	        arrayList.add(6);
-	        arrayList.add(7);
 
-	        // Shuffle the ArrayList
-	        Collections.shuffle(arrayList);
-
-	        
-	        System.out.println("Shuffled Array: " + arrayList);
-	    }
-	}
-
-
+          public static void main(String[] args) {
+        int[] originalArray = {1, 2, 3, 4, 5, 6, 7};
+        
+         int[] shuffledArray = Arrays.copyOf(originalArray, originalArray.length);
+        
+        // Shuffle the copied array
+        shuffleArray(shuffledArray);
+        
+        // Print the shuffled array
+        System.out.println("Original Array: " + Arrays.toString(originalArray));
+        System.out.println("Shuffled Array: " + Arrays.toString(shuffledArray));
+    }
+    
+    public static void shuffleArray(int[] array) {
+        int n = array.length;
+        Random random = new Random();
+        
+        for (int i = n - 1; i > 0; i--) {
+            int j = random.nextInt(i + 1);
+            
+            // Swap array[i] and array[j]
+            int temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+    }
+       }
+	  }
